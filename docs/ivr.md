@@ -18,7 +18,7 @@
 
 
 # 3 订阅事件接口
-事件订阅接口请参考 [事件订阅与推送文档](https://wellcloud-docs.github.io/open-api/#/event)
+事件订阅接口请参考 [事件订阅与推送文档](https://wellcloud-docs.github.io/open-api/#/event), 订阅IVR事件对应的topics为：event.ivr.{domain} .
 
 
 # 4	语音监听接口
@@ -81,13 +81,14 @@ Content-Type: application/json;charset=utf-8
 
 ### 5.1.2 **请求地址**
 
-*POST:* media/playMedia
+*POST:* callControl/media/playMedia
 
 ### 5.1.3 **请求参数**
 
   参数名  | 约束 |  类型  |    格式(样例)     |     说明
   --------| ----------| ---------| ------------------- |-----------------------
-  callId |   是     |    String  |   a8307aa5-bd11-4216-a6e2-5e5d6161aec4             |呼叫CallID
+  token | 是 | String | a8307aa5-bd11-4216-a6e2-5e5d6161aec4 | 用于第3方集成配置的验证
+  callId |   是     |    String  |   82327ef4-b608-4af2-ab69-9186eab1d663             |呼叫CallID
   urls | 是  | String | welcome.wav;bye.wav | 语音媒体文件路径，多个文件之间用";"分割
 
 ### 5.1.4	**请求示例**
@@ -111,7 +112,7 @@ Content-Type: application/json;charset=utf-8
 
 ```json
 {
-    "callId":"a8307aa5-bd11-4216-a6e2-5e5d6161aec4"
+    "callId":"82327ef4-b608-4af2-ab69-9186eab1d663"
 }
 ```
 
@@ -124,13 +125,14 @@ Content-Type: application/json;charset=utf-8
 
 ### 5.2.2 **请求地址**
 
-*POST:* media/stopMedia
+*POST:* callControl/media/stopMedia
 
 ### 5.2.3 **请求参数**
 
   参数名  | 是否必须 |  类型  |    格式(样例)     |     说明
   --------| ----------| ---------| ------------------- |-----------------------
-  callId |   是     |    String  |   a8307aa5-bd11-4216-a6e2-5e5d6161aec4             |呼叫CallID
+  token | 是 | String  | a8307aa5-bd11-4216-a6e2-5e5d6161aec4 | 用于第3方集成配置的验证
+  callId |   是     |    String  |   82327ef4-b608-4af2-ab69-9186eab1d663    |呼叫CallID
 
 ### 5.2.4	**请求示例**
 
@@ -152,7 +154,7 @@ Content-Type: application/json;charset=utf-8
 
 ```json
 {
-    "callId": "a8307aa5-bd11-4216-a6e2-5e5d6161aec4"
+    "callId": "82327ef4-b608-4af2-ab69-9186eab1d663"
 }
 ```
 
@@ -165,13 +167,14 @@ Content-Type: application/json;charset=utf-8
 
 ### 5.3.2 **请求地址**
 
-*POST:* media/stopAndPlayMedia
+*POST:* callControl/media/stopAndPlayMedia
 
 ### 5.3.3 **请求参数**
 
   参数名  | 是否必须 |  类型  |    格式(样例)     |     说明
   --------| ----------| ---------| ------------------- |-----------------------
-  callid |   是     |    String  |   a8307aa5-bd11-4216-a6e2-5e5d6161aec4             |呼叫CallID
+  token  | 是    | String  | a8307aa5-bd11-4216-a6e2-5e5d6161aec4  | 用于第3方集成配置的验证
+  callid |   是     |    String  |   82327ef4-b608-4af2-ab69-9186eab1d663     |呼叫CallID
   urls | 是  | String | welcome.wav;bye.wav | 语音媒体文件路径，多个文件之间用";"分割
 
 ### 5.3.4	**请求示例**
@@ -195,7 +198,7 @@ Content-Type: application/json;charset=utf-8
 
 ```json
 {
-    "callId":"a8307aa5-bd11-4216-a6e2-5e5d6161aec4"
+    "callId":"82327ef4-b608-4af2-ab69-9186eab1d663"
 }
 ```
 
